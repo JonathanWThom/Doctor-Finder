@@ -6,6 +6,7 @@ function displayDoctors(firstName, lastName, title, address, phones) {
 
 function displayError(error) {
   $('#drnick-greeting').text(error);
+  $('#doctor-list').hide();
 }
 
 function displaySpecialties(specialty, uid) {

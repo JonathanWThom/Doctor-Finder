@@ -45,7 +45,13 @@ Doctor.prototype.findDoctors = function(ailment, name, specialtyUid, displayDoct
         var visit_address = doctor.practices[0].visit_address;
         console.log(visit_address);
         var address = visit_address.street + ", " + visit_address.city + ", " + visit_address.state + " " + visit_address.zip;
-        displayDoctors(firstName, lastName, title, address);
+        var phones = [];
+        doctor.practices[0].phones.forEach(function(phone) {
+          var phoneNumbers = phone.number + " (" + phone.type + ")";
+          phones.push(phoneNumbers);
+        });
+        phones.join(",");
+        displayDoctors(firstName, lastName, title, address, phones);
       });
     }
   })

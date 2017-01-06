@@ -1,7 +1,7 @@
 var Doctor = require('./../js/doctor.js').doctorModule;
 
-function displayDoctors(firstName, lastName, title, address) {
-  $('#doctor-list tbody').append("<tr><td>" + firstName + " " + lastName + ", " + title + "</td><td>" + address + "</td></tr>");
+function displayDoctors(firstName, lastName, title, address, phones) {
+  $('#doctor-list tbody').append("<tr><td>" + firstName + " " + lastName + ", " + title + "</td><td>" + address + "</td><td>" + phones + "</td></tr>");
 }
 
 function displayError(error) {

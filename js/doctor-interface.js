@@ -21,7 +21,6 @@ $(document).ready(function(){
     var ailment = $('#ailment').val();
     var name = $('#name').val();
     var specialtyUid = $("#specialties").val();
-    console.log(specialtyUid);
     var doctor = new Doctor();
     doctor.findDoctors(ailment, name, specialtyUid, displayDoctors, displayError);
   });
@@ -32,5 +31,6 @@ $(document).ready(function(){
     $("#specialties").prop('selectedIndex', 0);
     $('select').material_select();
     $('#doctor-list').empty();
+    $('#error').empty();
   });
 });

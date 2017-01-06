@@ -8,10 +8,9 @@ function displayError(error) {
   $('#error').text(error);
 }
 
-function displaySpecialities(speciality) {
-  console.log('oh hey this is running');
+function displaySpecialities(speciality, uid) {
   $('select').material_select();
-  $('#specialities').append("<option>" + speciality + "</option>");
+  $('#specialities').append("<option value='" + uid + "'>" + speciality + "</option>");
 }
 
 $(document).ready(function(){

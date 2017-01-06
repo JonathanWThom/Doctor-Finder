@@ -7,7 +7,8 @@ Doctor.allSpecialities = function(displaySpecialities) {
   .then(function(result) {
     result.data.forEach(function(speciality) {
       var specialityName = speciality.name;
-      displaySpecialities(specialityName);
+      var specialityUid = speciality.uid;
+      displaySpecialities(specialityName, specialityUid);
     });
   })
   .fail(function(error){

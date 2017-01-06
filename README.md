@@ -2,8 +2,9 @@ format output
 
 make more intuitive
 
-Add an additional API call to retrieve the list of specialities from the database before you query for a doctor, then return that list in a dropdown menu.
+
 Add styling with SASS. Use a Gulp task to compile it.
+add loading bar
 
 README INSTRUCTIONS
 

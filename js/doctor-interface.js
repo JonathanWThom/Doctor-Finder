@@ -18,11 +18,18 @@ $(document).ready(function(){
   Doctor.allSpecialties(displaySpecialties);
 
   $('#find-doctors').click(function() {
+    $('#doctor-list').empty();
+    $('#error').empty();
     var ailment = $('#ailment').val();
     var name = $('#name').val();
     var specialtyUid = $("#specialties").val();
-    var doctor = new Doctor();
-    doctor.findDoctors(ailment, name, specialtyUid, displayDoctors, displayError);
+
+    if (!ailment && !name && !specialtyUid) {
+      $('#error').text("Please fill in at least one field");
+    } else {
+      var doctor = new Doctor();
+      doctor.findDoctors(ailment, name, specialtyUid, displayDoctors, displayError);
+    }
   });
 
   $('#reset').click(function(){

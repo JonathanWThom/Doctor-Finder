@@ -5,6 +5,8 @@ make more intuitive
 
 Add styling with SASS. Use a Gulp task to compile it.
 add loading bar
+make sure all conditions met!
+print out more people, in table
 
 README INSTRUCTIONS
 

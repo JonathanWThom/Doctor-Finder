@@ -7,7 +7,8 @@ function displayDoctors(firstName, lastName, title) {
 $(document).ready(function(){
   $('#find-doctors').click(function() {
     var ailment = $('#ailment').val();
+    var name = $('#name').val();
     var doctor = new Doctor();
-    doctor.findDoctors(ailment, displayDoctors);
+    doctor.findDoctors(ailment, name, displayDoctors);
   });
 });

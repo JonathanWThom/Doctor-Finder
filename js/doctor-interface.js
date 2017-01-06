@@ -20,7 +20,6 @@ $(document).ready(function(){
   $('#find-doctors').click(function() {
     $('#doctor-list tbody').empty();
     $('#error').empty();
-    $('#doctor-list').show();
     var ailment = $('#ailment').val();
     var name = $('#name').val();
     var specialtyUid = $("#specialties").val();
@@ -28,6 +27,7 @@ $(document).ready(function(){
     if (!ailment && !name && !specialtyUid) {
       $('#error').text("Please fill in at least one field");
     } else {
+      $('#doctor-list').show();
       var doctor = new Doctor();
       doctor.findDoctors(ailment, name, specialtyUid, displayDoctors, displayError);
     }

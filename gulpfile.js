@@ -27,7 +27,6 @@ var lib = require('bower-files')({
 var browserSync = require('browser-sync').create();
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
-
 var buildProduction = utilities.env.production;
 
 gulp.task('concatInterface', function() {
@@ -84,7 +83,7 @@ gulp.task('bowerCSS', function () {
 
 gulp.task('bower', ['bowerJS', 'bowerCSS']);
 
-gulp.task('serve', function() {
+gulp.task('serve', ['build'], function() {
   browserSync.init({
     server: {
       baseDir: "./",

@@ -10,7 +10,7 @@ _Users can enter search parameters such as doctor specialty, name, and ailment a
 
 ## Known Bugs
 
-_You must refresh the page for the button to work, then there is a several second delay once you hit "Get Started" before the fields show up, due to the API loading._
+_The page sometimes requires a reset before the Start button will work. There is a several second delay once you hit "Get Started" before the fields show up, due to the API loading._
 
 ## Setup/Installation Requirements
 
@@ -34,7 +34,7 @@ exports.apiKey = "YOUR-API-KEY";
 gulp serve
 ```
 
-*_Then, refresh the page. 
+*_Then, refresh the page.
 
 ## Specifications
 1. User can enter name, ailment, and specialty parameters and be returned a list of doctors.

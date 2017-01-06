@@ -1,0 +1,22 @@
+{
+  "name": "doctors",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Jonathan Thom <jonathan.thom1990@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7",
+    "materialize": "^0.97.8"
+  }
+}

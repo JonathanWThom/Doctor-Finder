@@ -10,13 +10,18 @@ function displayError(error) {
 }
 
 function displaySpecialties(specialty, uid) {
-  $('#specialties').append("<option value='" + uid + "'>" + specialty + "</option>");
   $('select').material_select();
+  $('#specialties').append("<option value='" + uid + "'>" + specialty + "</option>");
 }
 
 $(document).ready(function(){
-  $('select').material_select();
-  Doctor.allSpecialties(displaySpecialties);
+  $('#start').click(function(){
+    $('select').material_select();
+    $('#parameters').show();
+    Doctor.allSpecialties(displaySpecialties);
+    $('#start').hide();
+    $('#drnick-greeting').text('Fill in as many of the fields as you\'d like to see which doctors in the Portland area would be a good match for you. You might have to wait a few seconds before the fields start working ; )')
+  });
 
   $('#find-doctors').click(function() {
     $('#doctor-list tbody').empty();
@@ -42,6 +47,6 @@ $(document).ready(function(){
     $('select').material_select();
     $('#doctor-list tbody').empty();
     $('#doctor-list').hide();
-    $('#drnick-greeting').text("Hi Everybody! Today, we're going to find the right doctor for YOU. Fill in one, two, or all of the fields to my right to see some good matches in the Portland area.");
+    $('#drnick-greeting').text("Fill in one, two, or all of the fields to my right to see some good matches in the Portland area.");
   });
 });

@@ -11,6 +11,10 @@ $border: 3px solid black;
   }
 }
 
+#parameters {
+  display: none;
+}
+
 #drnick-greeting, #parameters {
   border: $border;
   padding: 15px;

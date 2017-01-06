@@ -8,6 +8,10 @@
 
 _Users can enter search parameters such as doctor specialty, name, and ailment and be returned a list of doctors in the Portland area. Makes use of the [Better Doctor API](https://developer.betterdoctor.com/)._
 
+## Known Bugs
+
+_You must refresh the page after it loads in order for it to be functional. There is a bit of a wait after it reloads while the API info is fetched.
+
 ## Setup/Installation Requirements
 
 * _In the command line, run:_
@@ -30,7 +34,7 @@ exports.apiKey = "YOUR-API-KEY";
 gulp serve
 ```
 
-* Navigate to localhost:3000 if not immediately taken there.
+* _You must refresh the page, then wait ~10 seconds before it is functional._
 
 ## Specifications
 1. User can enter name, ailment, and specialty parameters and be returned a list of doctors.

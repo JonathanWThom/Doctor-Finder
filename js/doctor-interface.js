@@ -10,8 +10,8 @@ function displayError(error) {
 }
 
 function displaySpecialties(specialty, uid) {
-  $('select').material_select();
   $('#specialties').append("<option value='" + uid + "'>" + specialty + "</option>");
+  $('select').material_select();
 }
 
 $(document).ready(function(){

@@ -36,14 +36,13 @@ Doctor.prototype.findDoctors = function(ailment, name, specialtyUid, displayDoct
   $.get(call)
   .then(function(result) {
     if (result.data.length === 0) {
-      displayError("Sorry, there are no doctors in this area that meet those parameters.");
+      displayError("Oopsies, there are no doctors in this area that meet those parameters. Try again!");
     } else {
       result.data.forEach(function(doctor) {
         var firstName = doctor.profile.first_name;
         var lastName = doctor.profile.last_name;
         var title = doctor.profile.title;
         var visit_address = doctor.practices[0].visit_address;
-        console.log(visit_address);
         var address = visit_address.street + ", " + visit_address.city + ", " + visit_address.state + " " + visit_address.zip;
         var phones = [];
         doctor.practices[0].phones.forEach(function(phone) {

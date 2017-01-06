@@ -5,7 +5,7 @@ function displayDoctors(firstName, lastName, title, address, phones) {
 }
 
 function displayError(error) {
-  $('#error').text(error);
+  $('#drnick-greeting').text(error);
 }
 
 function displaySpecialties(specialty, uid) {
@@ -19,14 +19,15 @@ $(document).ready(function(){
 
   $('#find-doctors').click(function() {
     $('#doctor-list tbody').empty();
-    $('#error').empty();
+    $('#drnick-greeting').empty();
     var ailment = $('#ailment').val();
     var name = $('#name').val();
     var specialtyUid = $("#specialties").val();
 
     if (!ailment && !name && !specialtyUid) {
-      $('#error').text("Please fill in at least one field");
+      $('#drnick-greeting').text("Oopsies! You must fill in at least one field!");
     } else {
+      $('#drnick-greeting').text("Here are some docs that might make you feel better! Change and resubmit your form if you want to see some different results.");
       $('#doctor-list').show();
       var doctor = new Doctor();
       doctor.findDoctors(ailment, name, specialtyUid, displayDoctors, displayError);
@@ -40,6 +41,6 @@ $(document).ready(function(){
     $('select').material_select();
     $('#doctor-list tbody').empty();
     $('#doctor-list').hide();
-    $('#error').empty();
+    $('#drnick-greeting').text("Hi Everybody! Today, we're going to find the right doctor for YOU. Fill in one, two, or all of the fields to my right to see some good matches in the Portland area.");
   });
 });

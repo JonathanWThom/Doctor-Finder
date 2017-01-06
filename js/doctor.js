@@ -12,7 +12,7 @@ Doctor.allSpecialities = function(displaySpecialities) {
     });
   })
   .fail(function(error){
-    //bad things happen
+    $('#specialities').append("<option value=null>Unable to display specialities</option>");
   });
 };
 
@@ -29,7 +29,6 @@ Doctor.prototype.findDoctors = function(ailment, name, specialityUid, displayDoc
   } else if (specialityUid && !ailment && !name) {
     call = "https://api.betterdoctor.com/2016-03-01/doctors?speciality_uid=" + specialityUid + "&location=45.5231%2C-122.6765%2C100&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=" + apiKey;
   } else {
-    //all yes or all no
     call = "https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&query=" + ailment + "&speciality_uid=" + specialityUid + "&location=45.5231%2C-122.6765%2C100&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=" + apiKey;
   }
   console.log(call);

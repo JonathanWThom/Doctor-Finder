@@ -47,6 +47,6 @@ $(document).ready(function(){
     $('select').material_select();
     $('#doctor-list tbody').empty();
     $('#doctor-list').hide();
-    $('#drnick-greeting').text("Fill in one, two, or all of the fields to my right to see some good matches in the Portland area.");
+    $('#drnick-greeting').text("Fill in as many of the fields as you\'d like to see which doctors in the Portland area would be a good match for you.");
   });
 });

@@ -2,6 +2,19 @@ var apiKey = require('./../.env').apiKey;
 
 function Doctor() {}
 
+Doctor.allSpecialities = function(displaySpecialities) {
+  $.get("https://api.betterdoctor.com/2016-03-01/specialties?user_key=" + apiKey)
+  .then(function(result) {
+    result.data.forEach(function(speciality) {
+      var specialityName = speciality.name;
+      displaySpecialities(specialityName);
+    });
+  })
+  .fail(function(error){
+    //bad things happen
+  });
+};
+
 Doctor.prototype.findDoctors = function(ailment, name, displayDoctors, displayError) {
   if (ailment && !name) {
     console.log("ailment present");
@@ -59,6 +72,5 @@ Doctor.prototype.findDoctors = function(ailment, name, displayDoctors, displayEr
     });
   }
 };
-
 
 exports.doctorModule = Doctor;

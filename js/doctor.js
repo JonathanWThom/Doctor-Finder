@@ -2,34 +2,34 @@ var apiKey = require('./../.env').apiKey;
 
 function Doctor() {}
 
-Doctor.allSpecialities = function(displaySpecialities) {
+Doctor.allSpecialties = function(displaySpecialties) {
   $.get("https://api.betterdoctor.com/2016-03-01/specialties?user_key=" + apiKey)
   .then(function(result) {
-    result.data.forEach(function(speciality) {
-      var specialityName = speciality.name;
-      var specialityUid = speciality.uid;
-      displaySpecialities(specialityName, specialityUid);
+    result.data.forEach(function(specialty) {
+      var specialtyName = specialty.name;
+      var specialtyUid = specialty.uid;
+      displaySpecialties(specialtyName, specialtyUid);
     });
   })
   .fail(function(error){
-    $('#specialities').append("<option value=null>Unable to display specialities</option>");
+    $('#specialties').append("<option value=null>Unable to display specialties</option>");
   });
 };
 
-Doctor.prototype.findDoctors = function(ailment, name, specialityUid, displayDoctors, displayError) {
+Doctor.prototype.findDoctors = function(ailment, name, specialtyUid, displayDoctors, displayError) {
   var call;
-  if (ailment && name && !specialityUid) {
+  if (ailment && name && !specialtyUid) {
     call = "https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&query=" + ailment + "&location=45.5231%2C-122.6765%2C100&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=" + apiKey;
-  } else if (ailment && !name && !specialityUid) {
+  } else if (ailment && !name && !specialtyUid) {
     call = "https://api.betterdoctor.com/2016-03-01/doctors?query=" + ailment + "&location=45.5231%2C-122.6765%2C100&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=" + apiKey;
-  } else if (name && specialityUid && !ailment) {
-    call = "https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&speciality_uid=" + specialityUid + "&location=45.5231%2C-122.6765%2C100&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=" + apiKey;
-  } else if (specialityUid && ailment && !name) {
-    call = "https://api.betterdoctor.com/2016-03-01/doctors?query=" + ailment + "&speciality_uid=" + specialityUid + "&location=45.5231%2C-122.6765%2C100&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=" + apiKey;
-  } else if (specialityUid && !ailment && !name) {
-    call = "https://api.betterdoctor.com/2016-03-01/doctors?speciality_uid=" + specialityUid + "&location=45.5231%2C-122.6765%2C100&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=" + apiKey;
+  } else if (name && specialtyUid && !ailment) {
+    call = "https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&specialty_uid=" + specialtyUid + "&location=45.5231%2C-122.6765%2C100&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=" + apiKey;
+  } else if (specialtyUid && ailment && !name) {
+    call = "https://api.betterdoctor.com/2016-03-01/doctors?query=" + ailment + "&specialty_uid=" + specialtyUid + "&location=45.5231%2C-122.6765%2C100&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=" + apiKey;
+  } else if (specialtyUid && !ailment && !name) {
+    call = "https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=" + specialtyUid + "&location=45.5231%2C-122.6765%2C100&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=" + apiKey;
   } else {
-    call = "https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&query=" + ailment + "&speciality_uid=" + specialityUid + "&location=45.5231%2C-122.6765%2C100&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=" + apiKey;
+    call = "https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&query=" + ailment + "&specialty_uid=" + specialtyUid + "&location=45.5231%2C-122.6765%2C100&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=" + apiKey;
   }
   $.get(call)
   .then(function(result) {

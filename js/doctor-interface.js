@@ -8,27 +8,28 @@ function displayError(error) {
   $('#error').text(error);
 }
 
-function displaySpecialities(speciality, uid) {
+function displaySpecialties(specialty, uid) {
   $('select').material_select();
-  $('#specialities').append("<option value='" + uid + "'>" + speciality + "</option>");
+  $('#specialties').append("<option value='" + uid + "'>" + specialty + "</option>");
 }
 
 $(document).ready(function(){
   $('select').material_select();
-  Doctor.allSpecialities(displaySpecialities);
+  Doctor.allSpecialties(displaySpecialties);
 
   $('#find-doctors').click(function() {
     var ailment = $('#ailment').val();
     var name = $('#name').val();
-    var specialityUid = $("#specialities").val();
+    var specialtyUid = $("#specialties").val();
+    console.log(specialtyUid);
     var doctor = new Doctor();
-    doctor.findDoctors(ailment, name, specialityUid, displayDoctors, displayError);
+    doctor.findDoctors(ailment, name, specialtyUid, displayDoctors, displayError);
   });
 
   $('#reset').click(function(){
     $('#ailment').val('');
     $('#name').val('');
-    $("#specialities").prop('selectedIndex', 0);
+    $("#specialties").prop('selectedIndex', 0);
     $('select').material_select();
     $('#doctor-list').empty();
   });

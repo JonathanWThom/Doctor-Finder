@@ -1,7 +1,7 @@
 {
   "name": "doctors",
   "version": "1.0.0",
-  "description": "",
+  "description": "#### _Web application that allows users to search for doctors in the Portland area. 1.6.16_",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,5 +22,8 @@
     "gulp-util": "^3.0.8",
     "jshint": "^2.9.4",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1"
   }
 }

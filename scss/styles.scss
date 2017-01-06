@@ -1,5 +1,37 @@
+$blue: #039be5;
+$orange: #E18050;
+$border: 3px solid black;
+
+
 .row {
   #doctor-list {
     display: none;
+    border: $border;
+    background-color: $orange;
   }
+}
+
+#drnick-greeting, #parameters {
+  border: $border;
+  padding: 15px;
+  background-color: $orange;
+  .btn {
+    background: $blue;
+  }
+  label {
+    color: black;
+    font-weight: normal;
+  }
+  .active {
+    color: $blue;
+  }
+  input {
+    border-bottom: 1px solid $blue;
+  }
+}
+
+
+
+body {
+  background-color: $blue;
 }

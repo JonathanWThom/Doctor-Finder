@@ -1,7 +1,7 @@
 var Doctor = require('./../js/doctor.js').doctorModule;
 
 function displayDoctors(firstName, lastName, title) {
-  $('#doctor-list').append("<li>" + firstName + " " + lastName + ", " + title);
+  $('#doctor-list tbody').append("<tr><td>" + firstName + " " + lastName + ", " + title + "</td></tr>");
 }
 
 function displayError(error) {
@@ -18,8 +18,9 @@ $(document).ready(function(){
   Doctor.allSpecialties(displaySpecialties);
 
   $('#find-doctors').click(function() {
-    $('#doctor-list').empty();
+    $('#doctor-list tbody').empty();
     $('#error').empty();
+    $('#doctor-list').show();
     var ailment = $('#ailment').val();
     var name = $('#name').val();
     var specialtyUid = $("#specialties").val();
@@ -37,7 +38,8 @@ $(document).ready(function(){
     $('#name').val('');
     $("#specialties").prop('selectedIndex', 0);
     $('select').material_select();
-    $('#doctor-list').empty();
+    $('#doctor-list tbody').empty();
+    $('#doctor-list').hide();
     $('#error').empty();
   });
 });

@@ -42,7 +42,10 @@ Doctor.prototype.findDoctors = function(ailment, name, specialtyUid, displayDoct
         var firstName = doctor.profile.first_name;
         var lastName = doctor.profile.last_name;
         var title = doctor.profile.title;
-        displayDoctors(firstName, lastName, title);
+        var visit_address = doctor.practices[0].visit_address;
+        console.log(visit_address);
+        var address = visit_address.street + ", " + visit_address.city + ", " + visit_address.state + " " + visit_address.zip;
+        displayDoctors(firstName, lastName, title, address);
       });
     }
   })

@@ -16,10 +16,10 @@ Doctor.allSpecialities = function(displaySpecialities) {
   });
 };
 
-Doctor.prototype.findDoctors = function(ailment, name, displayDoctors, displayError) {
+Doctor.prototype.findDoctors = function(ailment, name, specialityUid, displayDoctors, displayError) {
   if (ailment && !name) {
     console.log("ailment present");
-    $.get("https://api.betterdoctor.com/2016-03-01/doctors?query=" + ailment + "&location=45.5231%2C-122.6765%2C100&user_location=37.773%2C-122.413&skip=0&limit=20&user_key=" + apiKey)
+    $.get("https://api.betterdoctor.com/2016-03-01/doctors?query=" + ailment + "&location=45.5231%2C-122.6765%2C100&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=" + apiKey)
     .then(function(result) {
       if (result.data.length === 0) {
         displayError("Sorry, there are no doctors in this area that treat that condition.");
@@ -37,7 +37,7 @@ Doctor.prototype.findDoctors = function(ailment, name, displayDoctors, displayEr
     });
   } else if (name && !ailment) {
     console.log("name present");
-    $.get("https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&location=45.5231%2C-122.6765%2C100&user_location=37.773%2C-122.413&skip=0&limit=20&user_key=" + apiKey)
+    $.get("https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&location=45.5231%2C-122.6765%2C100&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=" + apiKey)
     .then(function(result) {
       if (result.data.length === 0) {
         displayError("Sorry, there are no doctors in this area with that name.");
@@ -55,7 +55,7 @@ Doctor.prototype.findDoctors = function(ailment, name, displayDoctors, displayEr
     });
   } else {
     console.log("both");
-    $.get("https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&query=" + ailment + "&location=45.5231%2C-122.6765%2C100&user_location=37.773%2C-122.413&skip=0&limit=20&user_key=" + apiKey)
+    $.get("https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&query=" + ailment + "&speciality_uid=" + specialityUid + "&location=45.5231%2C-122.6765%2C100&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=" + apiKey)
     .then(function(result) {
       if (result.data.length === 0) {
         displayError("Sorry, there are no doctors in this area that meet those parameters.");

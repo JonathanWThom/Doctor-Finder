@@ -19,7 +19,8 @@ $(document).ready(function(){
   $('#find-doctors').click(function() {
     var ailment = $('#ailment').val();
     var name = $('#name').val();
+    var specialityUid = $("#specialities").val();
     var doctor = new Doctor();
-    doctor.findDoctors(ailment, name, displayDoctors, displayError);
+    doctor.findDoctors(ailment, name, specialityUid, displayDoctors, displayError);
   });
 });

@@ -10,6 +10,7 @@ Doctor.allSpecialties = function(displaySpecialties) {
       var specialtyUid = specialty.uid;
       displaySpecialties(specialtyName, specialtyUid);
     });
+    $('#parameters').show();
   })
   .fail(function(error){
     $('#specialties').append("<option value=''>Unable to display specialties</option>");

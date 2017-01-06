@@ -17,10 +17,10 @@ function displaySpecialties(specialty, uid) {
 $(document).ready(function(){
   $('#start').click(function(){
     $('select').material_select();
-    $('#parameters').show();
+
     Doctor.allSpecialties(displaySpecialties);
     $('#start').hide();
-    $('#drnick-greeting').text('Fill in as many of the fields as you\'d like to see which doctors in the Portland area would be a good match for you. You might have to wait a few seconds before the fields start working ; )')
+    $('#drnick-greeting').text('Fill in as many of the fields as you\'d like to see which doctors in the Portland area would be a good match for you. You might have to wait a few seconds for the fields to show up ; )')
   });
 
   $('#find-doctors').click(function() {

@@ -33,6 +33,7 @@ exports.apiKey = "YOUR-API-KEY";
 ```
 gulp serve
 ```
+*_Refresh page, if necessary._
 
 ## Specifications
 1. User can enter name, ailment, and specialty parameters and be returned a list of doctors.
